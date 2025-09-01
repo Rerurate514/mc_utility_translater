@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mc_utility_translater/src/components/explain_edit_text.dart';
 import 'package:mc_utility_translater/src/components/extract_zip_button.dart';
 import 'package:mc_utility_translater/src/components/extract_zip_result.dart';
 import 'package:mc_utility_translater/src/components/file_loader_button.dart';
@@ -7,6 +8,7 @@ import 'package:mc_utility_translater/src/components/file_loader_result.dart';
 import 'package:mc_utility_translater/src/components/file_pick_button.dart';
 import 'package:mc_utility_translater/src/components/file_pick_result.dart';
 import 'package:mc_utility_translater/src/components/json_editor.dart';
+import 'package:mc_utility_translater/src/components/next_under_arrow_icon.dart';
 import 'package:mc_utility_translater/src/components/page_wrapper.dart';
 
 class HomePage extends ConsumerStatefulWidget {
@@ -35,6 +37,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     const Expanded(child: FilePickResult()),
                   ],
                 ),
+                Center(child: NextUnderArrowIcon(),),
                 Row(
                   children: [
                     const ExtractZipButton(),
@@ -42,6 +45,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                     const Expanded(child: ExtractZipResult()),
                   ],
                 ),
+                Center(child: NextUnderArrowIcon(),),
                 Row(
                   children: [
                     const FileLoaderButton(),
@@ -49,6 +53,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                     const Expanded(child: FileLoaderResult()),
                   ],
                 ),
+                Center(child: NextUnderArrowIcon(),),
+                Center(child: ExplainEditText(),),
+                Center(child: NextUnderArrowIcon(),),
               ],
             ),
           ),
