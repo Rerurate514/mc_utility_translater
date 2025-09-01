@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mc_utility_translater/src/components/extract_zip_button.dart';
 import 'package:mc_utility_translater/src/components/extract_zip_result.dart';
+import 'package:mc_utility_translater/src/components/file_loader_button.dart';
+import 'package:mc_utility_translater/src/components/file_loader_result.dart';
 import 'package:mc_utility_translater/src/components/file_pick_button.dart';
 import 'package:mc_utility_translater/src/components/file_pick_result.dart';
 import 'package:mc_utility_translater/src/components/page_wrapper.dart';
@@ -35,6 +37,12 @@ class _HomePageState extends ConsumerState<HomePage> {
                   children: [
                     ExtractZipButton(),
                     ExtractZipResult()
+                  ],
+                ),
+                Row(
+                  children: [
+                    FileLoaderButton(),
+                    FileLoaderResult()
                   ],
                 )
               ]
