@@ -19,7 +19,7 @@ class _HomePageState extends ConsumerState<HomePage> {
   Widget build(BuildContext context) {
     return PageWrapper(
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Flexible(
             flex: 1,
@@ -44,7 +44,7 @@ class _HomePageState extends ConsumerState<HomePage> {
             flex: 1,
             child: Column(
               children: [
-                
+                Text("data")
               ]
             ),
           ),
