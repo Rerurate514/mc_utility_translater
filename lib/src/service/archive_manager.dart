@@ -21,16 +21,16 @@ class ArchiveManager {
           await outputFile.parent.create(recursive: true);
           
           await outputFile.writeAsBytes(file.content as List<int>);
-          print('Extracted: $outputFilePath');
         } else {
           await Directory('$destinationDirPath/$filename').create(recursive: true);
         }
       }
-      print('Zip file successfully extracted to $destinationDirPath');
     } on FileSystemException catch (e) {
-      print('ファイルシステムエラーが発生しました: $e');
+      throw Exception('ファイルシステムエラーが発生しました: ${e.message}');
+    } on ArchiveException catch (_) {
+      throw Exception('ZIPファイルのデコードに失敗しました');
     } catch (e) {
-      print('予期せぬエラーが発生しました: $e');
+      throw Exception('予期せぬエラーが発生しました: $e');
     }
   }
 }
