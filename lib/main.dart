@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mc_utility_translater/src/pages/home_page.dart';
 
 void main() {
@@ -10,11 +11,11 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: HomePage()
-        ),
+    return ProviderScope(
+      child: const MaterialApp(
+        home: Scaffold(
+          body: HomePage()
+        )
       ),
     );
   }

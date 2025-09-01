@@ -6,8 +6,8 @@ part 'file_pick_notifier.g.dart';
 @riverpod
 class FilePickNotifier extends _$FilePickNotifier {
   @override
-  build() {
-    return null;
+  AsyncValue<FilePickerResult?> build() {
+    return const AsyncValue.data(null);
   }
 
   Future<void> pickSingleFile() async {
