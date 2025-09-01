@@ -1,3 +1,4 @@
+import 'package:path/path.dart' as p;
 import 'package:mc_utility_translater/src/notifier/file_pick_notifier.dart';
 import 'package:mc_utility_translater/src/service/archive_manager.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -29,9 +30,11 @@ class ExtractZipNotifier extends _$ExtractZipNotifier {
       return;
     }
 
-    const destinationDirPath = 'C:/extracted_zip_files';
-
     try {
+      final parentDir = p.dirname(zipFilePath);
+      final newDirName = "${p.basenameWithoutExtension(zipFilePath)}-rerurate-resources-toJP";
+      final destinationDirPath = p.join(parentDir, newDirName);
+
       await _archiveManager.extractZipFile(
         zipFilePath: zipFilePath,
         destinationDirPath: destinationDirPath,
