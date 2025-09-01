@@ -1,3 +1,4 @@
+import 'package:mc_utility_translater/src/const/file_suffix.dart';
 import 'package:path/path.dart' as p;
 import 'package:mc_utility_translater/src/notifier/file_pick_notifier.dart';
 import 'package:mc_utility_translater/src/service/archive_manager.dart';
@@ -32,7 +33,7 @@ class ExtractZipNotifier extends _$ExtractZipNotifier {
 
     try {
       final parentDir = p.dirname(zipFilePath);
-      final newDirName = "${p.basenameWithoutExtension(zipFilePath)}-rerurate-resources-toJP";
+      final newDirName = "${p.basenameWithoutExtension(zipFilePath)}$fileSuffix";
       final destinationDirPath = p.join(parentDir, newDirName);
 
       await _archiveManager.extractZipFile(
