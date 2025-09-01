@@ -36,4 +36,8 @@ class FileLoaderNotifier extends _$FileLoaderNotifier {
       state = AsyncValue.error(e, st);
     }
   }
+
+  void updateJson(String newJson) {
+    state = AsyncValue.data(newJson);
+  }
 }

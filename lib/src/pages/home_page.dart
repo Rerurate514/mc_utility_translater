@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mc_utility_translater/src/components/extract_zip_button.dart';
@@ -7,6 +6,7 @@ import 'package:mc_utility_translater/src/components/file_loader_button.dart';
 import 'package:mc_utility_translater/src/components/file_loader_result.dart';
 import 'package:mc_utility_translater/src/components/file_pick_button.dart';
 import 'package:mc_utility_translater/src/components/file_pick_result.dart';
+import 'package:mc_utility_translater/src/components/json_editor.dart';
 import 'package:mc_utility_translater/src/components/page_wrapper.dart';
 
 class HomePage extends ConsumerStatefulWidget {
@@ -26,34 +26,39 @@ class _HomePageState extends ConsumerState<HomePage> {
           Flexible(
             flex: 1,
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
                   children: [
-                    FilePickButton(),
-                    FilePickResult()
+                    const FilePickButton(),
+                    const SizedBox(width: 8),
+                    const Expanded(child: FilePickResult()),
                   ],
                 ),
                 Row(
                   children: [
-                    ExtractZipButton(),
-                    ExtractZipResult()
+                    const ExtractZipButton(),
+                    const SizedBox(width: 8),
+                    const Expanded(child: ExtractZipResult()),
                   ],
                 ),
                 Row(
                   children: [
-                    FileLoaderButton(),
-                    FileLoaderResult()
+                    const FileLoaderButton(),
+                    const SizedBox(width: 8),
+                    const Expanded(child: FileLoaderResult()),
                   ],
-                )
-              ]
+                ),
+              ],
             ),
           ),
+          const SizedBox(width: 16),
           Flexible(
-            flex: 1,
+            flex: 2,
             child: Column(
-              children: [
-                Text("data")
-              ]
+              children: const [
+                Expanded(child: JsonEditor()),
+              ],
             ),
           ),
         ],
