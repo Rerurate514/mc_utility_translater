@@ -14,17 +14,20 @@ class CommonButton extends ConsumerStatefulWidget {
 class _CommonButtonState extends ConsumerState<CommonButton> {
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton.icon(
-      onPressed: widget.onPressed,
-      icon: Icon(widget.icon),
-      label: Text(widget.text),
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.blueAccent,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
+    return Padding(
+      padding: const EdgeInsets.all(4),
+      child: ElevatedButton.icon(
+        onPressed: widget.onPressed,
+        icon: Icon(widget.icon),
+        label: Text(widget.text),
+        style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.blueAccent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
       ),
     );
   }
