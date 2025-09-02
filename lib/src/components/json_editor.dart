@@ -27,10 +27,8 @@ class _JsonEditorState extends ConsumerState<JsonEditor> {
 
   @override
   Widget build(BuildContext context) {
-    // FileLoaderNotifierの状態を監視
     final fileLoaderState = ref.watch(fileLoaderNotifierProvider);
 
-    // 状態が更新されたらTextEditingControllerに反映
     ref.listen<AsyncValue<String>>(fileLoaderNotifierProvider, (previous, next) {
       next.whenData((value) {
         if (value.isNotEmpty && _jsonController.text != value) {
