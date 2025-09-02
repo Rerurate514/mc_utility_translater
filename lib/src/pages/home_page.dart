@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mc_utility_translater/src/components/copy_prompt_button.dart';
 import 'package:mc_utility_translater/src/components/explain_edit_text.dart';
 import 'package:mc_utility_translater/src/components/extract_zip_button.dart';
 import 'package:mc_utility_translater/src/components/extract_zip_result.dart';
@@ -58,7 +59,13 @@ class _HomePageState extends ConsumerState<HomePage> {
                   ],
                 ),
                 Center(child: NextUnderArrowIcon(),),
-                Center(child: ExplainEditText(),),
+                Row(
+                  children: [
+                    const ExplainEditText(),
+                    const SizedBox(width: 8),
+                    const CopyPromptButton()
+                  ],
+                ),
                 Center(child: NextUnderArrowIcon(),),
                 Row(
                   children: [
