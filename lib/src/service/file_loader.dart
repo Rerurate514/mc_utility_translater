@@ -6,7 +6,7 @@ class FileLoader {
   String load(String path) {
     final String srcPath = (path.replaceAll(".jar", "") + fileSuffix);
     final String assetsDirPath = p.join(srcPath, "assets");
-    final assetsDir = Directory(assetsDirPath);print(assetsDir);
+    final assetsDir = Directory(assetsDirPath);
 
     if (!assetsDir.existsSync()) {
       throw Exception('assetsディレクトリが見つかりません: $assetsDirPath');
