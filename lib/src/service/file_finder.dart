@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:mc_utility_translater/src/const/file_suffix.dart';
 import 'package:path/path.dart';
 
 class FileFinder {
@@ -43,8 +44,8 @@ class FileFinder {
 
   static String? findLangPath(FilePickerResult? file){
     final fullPath = findZipFileFullPath(file);
-    final enUsPath = findEnUsJson(Directory(withoutExtension(fullPath)));
-    final langPath = enUsPath?.replaceAll("/en_us.json", "");
+    final enUsPath = findEnUsJson(Directory(withoutExtension(fullPath) + fileSuffix));
+    final langPath = enUsPath?.replaceAll("\\en_us.json", "");
     return langPath;
   }
 }
