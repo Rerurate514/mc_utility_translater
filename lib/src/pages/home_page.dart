@@ -32,62 +32,64 @@ class _HomePageState extends ConsumerState<HomePage> {
         children: [
           Flexible(
             flex: 1,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    const FilePickButton(),
-                    const SizedBox(width: 8),
-                    const Expanded(child: FilePickResult()),
-                  ],
-                ),
-                Center(child: NextUnderArrowIcon(),),
-                Row(
-                  children: [
-                    const ExtractZipButton(),
-                    const SizedBox(width: 8),
-                    const Expanded(child: ExtractZipResult()),
-                  ],
-                ),
-                Center(child: NextUnderArrowIcon(),),
-                Row(
-                  children: [
-                    const FileLoaderButton(),
-                    const SizedBox(width: 8),
-                    const Expanded(child: FileLoaderResult()),
-                  ],
-                ),
-                Center(child: NextUnderArrowIcon(),),
-                Row(
-                  children: [
-                    const ExplainEditText(),
-                    const SizedBox(width: 8),
-                    const CopyPromptButton()
-                  ],
-                ),
-                Center(child: NextUnderArrowIcon(),),
-                Row(
-                  children: [
-                    const FileSaverButton(),
-                    const SizedBox(width: 8),
-                    const Expanded(child: FileSaverResult()),
-                  ],
-                ),
-                Center(child: NextUnderArrowIcon(),),
-                Row(
-                  children: [
-                    const FileDeleterButton(),
-                    const SizedBox(width: 8),
-                    const Expanded(child: FileDeleterResult()),
-                  ],
-                ),
-                Center(child: NextUnderArrowIcon(),),
-                Center(child: Text("リソースパックとしてZipファイルに圧縮（ボタン付）"),),
-                Center(child: NextUnderArrowIcon(),),
-                Center(child: Text("完成（エクスプローラーを開くボタンを用意する）"),),
-              ],
-            ),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      const FilePickButton(),
+                      const SizedBox(width: 8),
+                      const Expanded(child: FilePickResult()),
+                    ],
+                  ),
+                  Center(child: NextUnderArrowIcon(),),
+                  Row(
+                    children: [
+                      const ExtractZipButton(),
+                      const SizedBox(width: 8),
+                      const Expanded(child: ExtractZipResult()),
+                    ],
+                  ),
+                  Center(child: NextUnderArrowIcon(),),
+                  Row(
+                    children: [
+                      const FileLoaderButton(),
+                      const SizedBox(width: 8),
+                      const Expanded(child: FileLoaderResult()),
+                    ],
+                  ),
+                  Center(child: NextUnderArrowIcon(),),
+                  Row(
+                    children: [
+                      const ExplainEditText(),
+                      const SizedBox(width: 8),
+                      const CopyPromptButton()
+                    ],
+                  ),
+                  Center(child: NextUnderArrowIcon(),),
+                  Row(
+                    children: [
+                      const FileSaverButton(),
+                      const SizedBox(width: 8),
+                      const Expanded(child: FileSaverResult()),
+                    ],
+                  ),
+                  Center(child: NextUnderArrowIcon(),),
+                  Row(
+                    children: [
+                      const FileDeleterButton(),
+                      const SizedBox(width: 8),
+                      const Expanded(child: FileDeleterResult()),
+                    ],
+                  ),
+                  Center(child: NextUnderArrowIcon(),),
+                  Center(child: Text("リソースパックとしてZipファイルに圧縮（ボタン付）"),),
+                  Center(child: NextUnderArrowIcon(),),
+                  Center(child: Text("完成（エクスプローラーを開くボタンを用意する）"),),
+                ],
+              ),
+            )
           ),
           const SizedBox(width: 16),
           Flexible(
