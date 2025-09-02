@@ -1,45 +1,25 @@
-// lib/src/widgets/json_editor.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mc_utility_translater/src/notifier/file_loader_notifier.dart';
+import 'package:mc_utility_translater/src/notifier/json_editor_controller_notifier.dart';
 
-class JsonEditor extends ConsumerStatefulWidget {
+class JsonEditor extends ConsumerWidget {
   const JsonEditor({super.key});
 
   @override
-  ConsumerState<JsonEditor> createState() => _JsonEditorState();
-}
-
-class _JsonEditorState extends ConsumerState<JsonEditor> {
-  late final TextEditingController _jsonController;
-
-  @override
-  void initState() {
-    super.initState();
-    _jsonController = TextEditingController();
-  }
-
-  @override
-  void dispose() {
-    _jsonController.dispose();
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final fileLoaderState = ref.watch(fileLoaderNotifierProvider);
+    final jsonController = ref.watch(jsonEditorControllerNotifierProvider);
 
     ref.listen<AsyncValue<String>>(fileLoaderNotifierProvider, (previous, next) {
       next.whenData((value) {
-        if (value.isNotEmpty && _jsonController.text != value) {
-          _jsonController.text = value;
-        }
+        ref.read(jsonEditorControllerNotifierProvider.notifier).updateText(value);
       });
     });
 
     return fileLoaderState.when(
       data: (data) => TextFormField(
-        controller: _jsonController,
+        controller: jsonController,
         maxLines: null,
         expands: true,
         decoration: const InputDecoration(
