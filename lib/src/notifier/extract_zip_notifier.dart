@@ -1,4 +1,5 @@
 import 'package:mc_utility_translater/src/const/file_suffix.dart';
+import 'package:mc_utility_translater/src/service/file_finder.dart';
 import 'package:path/path.dart' as p;
 import 'package:mc_utility_translater/src/notifier/file_pick_notifier.dart';
 import 'package:mc_utility_translater/src/service/archive_manager.dart';
@@ -19,17 +20,7 @@ class ExtractZipNotifier extends _$ExtractZipNotifier {
     state = const AsyncValue.loading();
 
     final file = ref.read(filePickNotifierProvider);
-
-    if (file.value == null || file.value!.files.isEmpty) {
-      state = AsyncValue.error('ファイルが選択されていません。', StackTrace.current);
-      return;
-    }
-
-    final zipFilePath = file.value!.files.first.path;
-    if (zipFilePath == null) {
-      state = AsyncValue.error('ファイルパスがnullです。', StackTrace.current);
-      return;
-    }
+    final zipFilePath = FileFinder.findZipFileFullPath(file.value);
 
     try {
       final parentDir = p.dirname(zipFilePath);

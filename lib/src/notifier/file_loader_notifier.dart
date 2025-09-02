@@ -1,4 +1,5 @@
 import 'package:mc_utility_translater/src/notifier/file_pick_notifier.dart';
+import 'package:mc_utility_translater/src/service/file_finder.dart';
 import 'package:mc_utility_translater/src/service/file_loader.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -17,17 +18,7 @@ class FileLoaderNotifier extends _$FileLoaderNotifier {
     state = const AsyncValue.loading();
 
     final file = ref.read(filePickNotifierProvider);
-
-    if (file.value == null || file.value!.files.isEmpty) {
-      state = AsyncValue.error('ファイルが選択されていません。', StackTrace.current);
-      return;
-    }
-
-    final zipFilePath = file.value!.files.first.path;
-    if (zipFilePath == null) {
-      state = AsyncValue.error('ファイルパスがnullです。', StackTrace.current);
-      return;
-    }
+    final zipFilePath = FileFinder.findZipFileFullPath(file.value);
 
     try {
       final fileContent = _fileLoader.load(zipFilePath);
