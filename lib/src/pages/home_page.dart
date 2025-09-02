@@ -3,10 +3,14 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mc_utility_translater/src/components/explain_edit_text.dart';
 import 'package:mc_utility_translater/src/components/extract_zip_button.dart';
 import 'package:mc_utility_translater/src/components/extract_zip_result.dart';
+import 'package:mc_utility_translater/src/components/file_deleter_button.dart';
+import 'package:mc_utility_translater/src/components/file_deleter_result.dart';
 import 'package:mc_utility_translater/src/components/file_loader_button.dart';
 import 'package:mc_utility_translater/src/components/file_loader_result.dart';
 import 'package:mc_utility_translater/src/components/file_pick_button.dart';
 import 'package:mc_utility_translater/src/components/file_pick_result.dart';
+import 'package:mc_utility_translater/src/components/file_saver_button.dart';
+import 'package:mc_utility_translater/src/components/file_saver_result.dart';
 import 'package:mc_utility_translater/src/components/json_editor.dart';
 import 'package:mc_utility_translater/src/components/next_under_arrow_icon.dart';
 import 'package:mc_utility_translater/src/components/page_wrapper.dart';
@@ -56,6 +60,25 @@ class _HomePageState extends ConsumerState<HomePage> {
                 Center(child: NextUnderArrowIcon(),),
                 Center(child: ExplainEditText(),),
                 Center(child: NextUnderArrowIcon(),),
+                Row(
+                  children: [
+                    const FileSaverButton(),
+                    const SizedBox(width: 8),
+                    const Expanded(child: FileSaverResult()),
+                  ],
+                ),
+                Center(child: NextUnderArrowIcon(),),
+                Row(
+                  children: [
+                    const FileDeleterButton(),
+                    const SizedBox(width: 8),
+                    const Expanded(child: FileDeleterResult()),
+                  ],
+                ),
+                Center(child: NextUnderArrowIcon(),),
+                Center(child: Text("リソースパックとしてZipファイルに圧縮（ボタン付）"),),
+                Center(child: NextUnderArrowIcon(),),
+                Center(child: Text("完成（エクスプローラーを開くボタンを用意する）"),),
               ],
             ),
           ),
