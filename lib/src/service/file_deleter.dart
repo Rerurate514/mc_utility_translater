@@ -2,7 +2,7 @@ import 'dart:io';
 
 class FileDeleter {
   static Future<void> deleteFilesExcept(String directoryPath) async {
-    final filesToKeep = ["en_us.json", "pack.mcmeta"];
+    final filesToKeep = ["pack.mcmeta", "ja_jp.json"];
     final directory = Directory(directoryPath);
 
     if (!await directory.exists()) {
