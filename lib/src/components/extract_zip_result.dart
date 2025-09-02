@@ -10,7 +10,8 @@ class ExtractZipResult extends ConsumerWidget {
     final extractState = ref.watch(extractZipNotifierProvider);
 
     return extractState.when(
-      data: (_) {
+      data: (isFinished) {
+        if(!isFinished) return const Text('解凍を行っていません。');
         return const Text('解凍が完了しました。', style: TextStyle(color: Colors.green));
       },
       loading: () {

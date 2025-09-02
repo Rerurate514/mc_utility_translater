@@ -9,8 +9,8 @@ part 'file_saver_notifier.g.dart';
 @riverpod
 class FileSaverNotifier extends _$FileSaverNotifier {
   @override
-  AsyncValue<void> build() {
-    return const AsyncValue.data(null);
+  AsyncValue<bool> build() {
+    return const AsyncValue.data(false);
   }
   
   Future<void> save() async {
@@ -27,6 +27,6 @@ class FileSaverNotifier extends _$FileSaverNotifier {
     final content = ref.read(jsonEditorControllerNotifierProvider).text;
     FileSaver.saveStringToFile(langPath, content);
 
-    state = AsyncData(null);
+    state = AsyncData(true);
   }
 }

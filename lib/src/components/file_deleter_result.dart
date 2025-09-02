@@ -10,7 +10,8 @@ class FileDeleterResult extends ConsumerWidget {
     final deleteState = ref.watch(fileDeleterNotifierProvider);
 
     return deleteState.when(
-      data: (_) {
+      data: (isFinished) {
+        if(!isFinished) return const Text('削除を行っていません。');
         return const Text('ファイルの削除が完了しました。', style: TextStyle(color: Colors.green));
       },
       loading: () {

@@ -10,8 +10,8 @@ part 'file_deleter_notifier.g.dart';
 @riverpod
 class FileDeleterNotifier extends _$FileDeleterNotifier {
   @override
-  AsyncValue<void> build() {
-    return const AsyncValue.data(null);
+  AsyncValue<bool> build() {
+    return const AsyncValue.data(false);
   }
 
   Future<void> delete() async {
@@ -23,7 +23,7 @@ class FileDeleterNotifier extends _$FileDeleterNotifier {
 
     try {
       FileDeleter.deleteFilesExcept(path);
-      state = const AsyncValue.data(null);
+      state = const AsyncValue.data(true);
     } catch (e, st) {
       state = AsyncValue.error(e, st);
     }

@@ -10,7 +10,8 @@ class FileSaverResult extends ConsumerWidget {
     final saveState = ref.watch(fileSaverNotifierProvider);
 
     return saveState.when(
-      data: (_) {
+      data: (isFinished) {
+        if(!isFinished) return const Text('保存していません。');
         return const Text('保存が完了しました。', style: TextStyle(color: Colors.green));
       },
       loading: () {

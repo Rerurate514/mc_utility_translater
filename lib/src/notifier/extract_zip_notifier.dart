@@ -12,8 +12,8 @@ class ExtractZipNotifier extends _$ExtractZipNotifier {
   final _archiveManager = ArchiveManager();
 
   @override
-  AsyncValue<void> build() {
-    return const AsyncValue.data(null);
+  AsyncValue<bool> build() {
+    return const AsyncValue.data(false);
   }
 
   Future<void> extractZip() async {
@@ -31,7 +31,7 @@ class ExtractZipNotifier extends _$ExtractZipNotifier {
         zipFilePath: zipFilePath,
         destinationDirPath: destinationDirPath,
       );
-      state = const AsyncValue.data(null);
+      state = const AsyncValue.data(true);
     } catch (e, st) {
       state = AsyncValue.error(e, st);
     }
