@@ -40,4 +40,11 @@ class FileFinder {
     
     return null;
   }
+
+  static String? findLangPath(FilePickerResult? file){
+    final fullPath = findZipFileFullPath(file);
+    final enUsPath = findEnUsJson(Directory(withoutExtension(fullPath)));
+    final langPath = enUsPath?.replaceAll("/en_us.json", "");
+    return langPath;
+  }
 }
